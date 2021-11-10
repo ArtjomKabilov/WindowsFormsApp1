@@ -11,11 +11,22 @@ namespace WindowsFormsApp1
         public double a;//первая сторона
         public double b;//вторая сторона
         public double c;//третья сторона
+        public double h;
         public Triangle(double A, double B, double C)//констректор
         {
             a = A;//создаём с заданными длинами сторон согласно заданию
             b = B;
             c = C;
+        }
+        public Triangle(double A, double H)//констректор
+        {
+            a = A;
+            h = H;
+
+        }
+        public string outputH()
+        {
+            return Convert.ToString(h);
         }
         public string outputA()// выводим сторону а
         {
@@ -35,6 +46,7 @@ namespace WindowsFormsApp1
             p = a + b + c;//вычисление...
             return p;// возврат
         }
+
         public double Surface()// анологично периметру..
         {
             double s = 0;
@@ -43,6 +55,17 @@ namespace WindowsFormsApp1
             s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
             return s;
          
+        }
+        public double Plosad()
+        {
+            double p = 0;
+            double h = 0;
+            double S = 0;
+            p = (a + b + c) / 2;
+           
+            h = 2*(Math.Sqrt((p * (p - a) * (p - b) * (p - c))))/a;
+            S = (a * h) / 2;
+            return S;
         }
         public double GetSetA // свойство позволяющее установить либо изменить значение сторон a
         {
@@ -73,6 +96,24 @@ namespace WindowsFormsApp1
                 else return true;
           
             } 
+        }
+        public void ExistTriangeh()// свойство позволяющее установить, существует ли треугольник с задаными сторонами
+        {
+
+            if (a==b && a==c)
+            {
+                Console.WriteLine("Ravnostoronyj");
+            }
+            else if (b==c && b!=a && c!=a)
+            {
+                Console.WriteLine("Ravnbedrenyj");
+            }
+            else
+            {
+                Console.WriteLine("Raznostoronyj");
+            }
+
+
         }
     }
 
