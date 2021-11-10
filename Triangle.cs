@@ -104,7 +104,7 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine("Ravnostoronyj");
             }
-            else if (b==c && b!=a && c!=a)
+            else if ((b==c && b!=a) || (b == a && b != c))
             {
                 Console.WriteLine("Ravnbedrenyj");
             }
